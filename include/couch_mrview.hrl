@@ -60,9 +60,9 @@
     preflight_fun,
 
     start_key,
-    start_key_docid,
+    start_key_docid = ?MIN_STR,
     end_key,
-    end_key_docid,
+    end_key_docid = ?MAX_STR,
     keys,
 
     direction = fwd,
@@ -88,7 +88,8 @@
     resp,
     prepend,
     etag,
-    should_close = false
+    should_close = false,
+    prefix = ""
 }).
 
 -record(lacc, {
