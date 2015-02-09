@@ -60,9 +60,9 @@
     preflight_fun,
 
     start_key,
-    start_key_docid = ?MIN_STR,
+    start_key_docid,
     end_key,
-    end_key_docid = ?MAX_STR,
+    end_key_docid,
     keys,
 
     direction = fwd,
