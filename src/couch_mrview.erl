@@ -83,13 +83,8 @@ validate(DbName, DDoc) ->
         false ->
             ok;
         Proc ->
-            try
-                lists:foreach(fun(V) -> ValidateView(Proc, V) end, Views)
-            catch Error ->
-                Error
-            after
-                couch_query_servers:ret_os_process(Proc)
-            end
+            lists:foreach(fun(V) -> ValidateView(Proc, V) end, Views),
+            couch_query_servers:ret_os_process(Proc)
     catch {unknown_query_language, _Lang} ->
         %% Allow users to save ddocs written in uknown languages
         ok
